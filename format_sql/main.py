@@ -130,11 +130,7 @@ def handle_sql_file(filename, debug=False):
     with open(filename) as f:
         lines = f.read()
 
-    try:
-        sql = format_sql(lines, debug)
-    except InvalidSQL as e:
-        print_non_data(e)
-        return
+    sql = format_sql(lines, debug)
 
     lines = '\n'.join(sql)
     return lines
